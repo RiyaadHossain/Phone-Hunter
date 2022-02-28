@@ -17,5 +17,18 @@ const printPhone = phones => {
    
     phones.forEach(phon => {
         console.log(phon)
+        const div = document.createElement('div')
+        div.className = 'col'
+        div.innerHTML = `
+        <div class="card">
+          <img src="${phon.image}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">${phon.phone_name}</h3>
+            <p><span class="fw-bold">Brand:</span> ${phon.brand}</p>
+            <button class="btn btn-info" onclick="">Explore</button>
+          </div>
+        </div>
+        `
+        phoneContainer.appendChild(div)
     });
 }
