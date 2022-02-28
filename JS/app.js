@@ -13,6 +13,7 @@ const searchPhone = () => {
     .then(json => printPhone(json.data))
 }
 
+/* -------------- Print Search Result in the Result Div -------------- */
 const printPhone = phones => {
    
     phones.forEach(phon => {
@@ -20,15 +21,21 @@ const printPhone = phones => {
         const div = document.createElement('div')
         div.className = 'col'
         div.innerHTML = `
-        <div class="card">
+        <div class="card shadow border-2">
           <img src="${phon.image}" class="card-img-top" alt="...">
           <div class="card-body">
             <h3 class="card-title">${phon.phone_name}</h3>
             <p><span class="fw-bold">Brand:</span> ${phon.brand}</p>
-            <button class="btn btn-info" onclick="">Explore</button>
+            <button class="btn btn-info" onclick="printDetals('${phon.slug}')">Explore</button>
           </div>
         </div>
         `
         phoneContainer.appendChild(div)
     });
+}
+
+
+/* -------------- Print Details in the Details Div -------------- */
+const printDetals = phoneID => {
+    console.log(phoneID)
 }
