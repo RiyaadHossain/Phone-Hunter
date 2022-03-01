@@ -9,24 +9,29 @@ const searchPhone = () => {
   const inputValue = searchInput.value;
   if (inputValue.length == "") {
     phoneContainer.textContent = "";
-    errorMsg.innerHTML = `<h2>😖 Please Input what Phone you want to Search 😣</h2>`;
+    errorMsg.innerHTML = `<h2> Please Input what Phone you want to Search 😓</h2>`;
   } else {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`;
     fetch(url)
       .then((Response) => Response.json())
       .then((json) => printPhone(json.data));
     errorMsg.textContent = "";
-    }
-    searchInput.value = ''
+  }
+  searchInput.value = "";
 };
 
 /* -------------- Print Search Result in the Result Div -------------- */
 const printPhone = (phones) => {
-  
-  phones.forEach((phon) => {
-    const div = document.createElement("div");
-    div.className = "col";
-    div.innerHTML = `
+  phoneContainer.textContent = "";
+  detailsContainer.textContent = "";
+  console.log(phones);
+  if (phones.length == 0) {
+    errorMsg.innerHTML = ` <h2>No, result Found! 😥</h2>`;
+  } else {
+    phones.forEach((phon) => {
+      const div = document.createElement("div");
+      div.className = "col";
+      div.innerHTML = `
         <div class="card shadow border-2">
           <img src="${phon.image}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -36,9 +41,9 @@ const printPhone = (phones) => {
           </div>
         </div>
         `;
-    phoneContainer.appendChild(div);
-  });
-
+      phoneContainer.appendChild(div);
+    });
+  }
 };
 
 /* -------------- Onclick Function for Explore -------------- */
@@ -52,8 +57,8 @@ const printDetals = (phoneID) => {
 /* -------------- Print Details in the Details Div -------------- */
 const printDetails = (data) => {
   let releaseMsg = "";
-  if (data.releaseDate == null) {
-    releaseMsg = "No, release Data here 😔";
+  if (data.releaseDate == "") {
+    releaseMsg = "No, release Data Found 😔";
   } else {
     releaseMsg = data.releaseDate;
   }
