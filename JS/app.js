@@ -24,11 +24,12 @@ const searchPhone = () => {
 const printPhone = (phones) => {
   phoneContainer.textContent = "";
   detailsContainer.textContent = "";
-  console.log(phones);
+  const limitedItem = phones.slice(0, 20)
+  console.log(limitedItem);
   if (phones.length == 0) {
     errorMsg.innerHTML = ` <h2>No, result Found! 😥</h2>`;
   } else {
-    phones.forEach((phon) => {
+    limitedItem.forEach((phon) => {
       const div = document.createElement("div");
       div.className = "col";
       div.innerHTML = `
