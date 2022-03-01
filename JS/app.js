@@ -25,7 +25,6 @@ const printPhone = (phones) => {
   phoneContainer.textContent = "";
   detailsContainer.textContent = "";
   const limitedItem = phones.slice(0, 20)
-  console.log(limitedItem);
   if (phones.length == 0) {
     errorMsg.innerHTML = ` <h2>No, result Found! 😥</h2>`;
   } else {
@@ -58,11 +57,13 @@ const printDetals = (phoneID) => {
 /* -------------- Print Details in the Details Div -------------- */
 const printDetails = (data) => {
   let releaseMsg = "";
+  detailsContainer.textContent = ''
   if (data.releaseDate == "") {
     releaseMsg = "No, release Data Found 😔";
   } else {
     releaseMsg = data.releaseDate;
   }
+  console.log(data)
   const div = document.createElement("div");
   div.className = "col";
   div.innerHTML = `
@@ -73,8 +74,12 @@ const printDetails = (data) => {
         <h3 class="card-title">${data.name}</h3>
         <p><span class="fw-bold">Release Date:</span> ${releaseMsg}</p>
         <p><span class="fw-bold">Brand:</span> ${data.brand}</p>
+        <p><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
         <p><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
         <p><span class="fw-bold">Sensor:</span> ${data.mainFeatures.sensors}</p>
+        <p><span class="fw-bold">Display Size:</span> ${data.mainFeatures.displaySize}</p>
+        <p><span class="fw-bold">ChipSet:</span> ${data.mainFeatures.chipSet}</p>
+        
       </div>
     </div>
     `;
