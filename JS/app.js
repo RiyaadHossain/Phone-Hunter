@@ -56,7 +56,7 @@ const printDetals = (phoneID) => {
 
 /* -------------- Print Details in the Details Div -------------- */
 const printDetails = (data) => {
- 
+ console.log(data.mainFeatures.sensors)
   detailsContainer.textContent = ''
   let releaseMsg = "";
   if (data.releaseDate == "") {
@@ -64,7 +64,9 @@ const printDetails = (data) => {
   } else {
     releaseMsg = data.releaseDate;
   }
-  console.log(data)
+  let sensor = ''
+  data.mainFeatures.sensors.forEach(element => sensor =  ` ${sensor} ${element},`)
+  console.log(sensor)
   const div = document.createElement("div");
   div.className = "col";
   if (data.others) {
@@ -78,7 +80,7 @@ const printDetails = (data) => {
         <p><span class="fw-bold">Brand:</span> ${data.brand}</p>
         <p><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
         <p><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
-        <p><span class="fw-bold">Sensor:</span> ${data.mainFeatures.sensors}</p>
+        <p><span class="fw-bold">Sensor:</span> ${sensor}</p>
         <p><span class="fw-bold">Display Size:</span> ${data.mainFeatures.displaySize}</p>
         <p><span class="fw-bold">ChipSet:</span> ${data.mainFeatures.chipSet}</p>
         <h5 class="text-center">-Others-</h5>
