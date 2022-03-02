@@ -106,27 +106,5 @@ const printDetails = (data) => {
         <p><span class="fw-bold">ChipSet:</span> ${data.mainFeatures.chipSet}</p>
     `;
   }
- /*  div.innerHTML = `
-    <h2 class="text-center my-3">Explored <span class="text-info">${data.name}</span></h2>
-    <div class="card shadow border-2">
-      <img src="${data.image}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h3 class="card-title">${data.name}</h3>
-        <p><span class="fw-bold">Release Date:</span> ${releaseMsg}</p>
-        <p><span class="fw-bold">Brand:</span> ${data.brand}</p>
-        <p><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
-        <p><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
-        <p><span class="fw-bold">Sensor:</span> ${data.mainFeatures.sensors}</p>
-        <p><span class="fw-bold">Display Size:</span> ${data.mainFeatures.displaySize}</p>
-        <p><span class="fw-bold">ChipSet:</span> ${data.mainFeatures.chipSet}</p>
-        <h5>Others:</h5>
-        <p><span class="fw-bold">WLAN:</span> ${data.others.WLAN}</p>
-        <p><span class="fw-bold">Bluetooth:</span> ${data.others.Bluetooth}</p>
-        <p><span class="fw-bold">GPS:</span> ${data.others.GPS}</p>
-        <p><span class="fw-bold">NFC:</span> ${data.others.NFC}</p>
-        <p><span class="fw-bold">Radio:</span> ${data.others.Radio}</p>
-      </div>
-    </div>
-    `; */
   detailsContainer.appendChild(div);
 };
